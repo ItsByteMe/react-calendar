@@ -1,0 +1,30 @@
+.monthName {
+    box-sizing: border-box;
+    padding: 70px 25px;
+    width: 100%;
+    background: #ccc;
+    text-align: center;
+  }
+  
+  .monthName ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .monthName ul li {
+    color: rgb(153, 67, 149);
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  
+  .monthName .prev {
+    float: left;
+    padding-top: 10px;
+  }
+  
+  .monthName .next {
+    float: right;
+    padding-top: 10px;
+  }
