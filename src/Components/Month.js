@@ -15,7 +15,7 @@ const Month = ({ Month }) => {
     }
     const monthComponent = mDays.map((i) => {
         return (
-            <Day dayNumber = {i+1} />
+            <Day dayNumber = {i+1}/>
         )
     })
 
