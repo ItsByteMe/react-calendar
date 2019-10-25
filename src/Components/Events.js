@@ -2,17 +2,15 @@ import React from 'react';
 import Event from './Event';
 import './Events.css'
 import { eventsList } from '../eventsList';
+import AddEvent from './AddEvent';
 
 const Events = ({ Month }) => {
-    console.log(Month);
-    const eventsToShow = eventsList.filter(event => event.month == Month)
-    console.log(eventsToShow)
+    const eventsToShow = eventsList.filter(event => event.month === Month)
 
     const eventsComponent = eventsToShow.map(i => {
         return (
             <Event month = {Month} day = {i.day + 1} name = {i.name} />
         )
-        console.log(i);
     })
 
     return (
@@ -20,6 +18,7 @@ const Events = ({ Month }) => {
         <ul className = 'Events'>
             <p>Events</p>
             {eventsComponent}
+            < AddEvent />
         </ul>
     )
 }

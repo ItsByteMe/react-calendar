@@ -40,15 +40,18 @@ const Event = ({ month, day, name }) => {
         case 11:
             mName = 'December';
             break;
+        default: 
+            mName = 'Unkown Month';
+            break;
     }
 
     let suffix = '';
 
-    if (day == 1) {
+    if (day === 1) {
         suffix = 'st';
-    } else if (day == 2) {
+    } else if (day === 2) {
         suffix = 'nd';
-    } else if (day == 3) {
+    } else if (day === 3) {
         suffix = 'rd';
     } else {
         suffix = 'th';
