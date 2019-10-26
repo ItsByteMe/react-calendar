@@ -3,7 +3,9 @@ import Annotation from '../Components/Annotation';
 import MonthName from '../Components/MonthName';
 import Month from '../Components/Month';
 import Events from '../Components/Events';
+import AddEvent from '../Components/AddEvent';
 import { months2019 } from '../months2019';
+import { eventsList } from '../eventsList';
 
 class App extends React.Component {
     constructor() {
@@ -11,13 +13,23 @@ class App extends React.Component {
         this.state = {
             mIndex: 0,
             month: '',
-            eventsDay: 0
+            eventsToRender: [],
+            eventDay: undefined,
+            eventName: ''
         }
 
         this.onPressRight = this.onPressRight.bind(this);
         this.onPressLeft = this.onPressLeft.bind(this);
+        this.onSubmitEvent = this.onSubmitEvent.bind(this);
+        this.onDayChange = this.onDayChange.bind(this);
+        this.onNameChange = this.onNameChange.bind(this);
     }
     
+    componentDidMount = () => {
+        this.setState({eventsToRender: eventsList.filter(event => event.month === this.state.mIndex)})
+
+    }
+
     onPressLeft = (event) => {
         if (this.state.mIndex !== 0) {
             this.setState({ mIndex: this.state.mIndex - 1});
@@ -35,13 +47,38 @@ class App extends React.Component {
         }
     }
 
+    onSubmitEvent = (event) => {
+        event.preventDefault();
+        const eventToAdd = {
+            day: this.state.eventDay,
+            month: this.state.mIndex,
+            name: this.state.eventName
+        }
+        const toJoin = this.state.eventsToRender.concat(eventToAdd)
+        this.setState({eventsToRender: toJoin})
+    }
+
+    onDayChange = (event) => {
+        this.setState({eventDay: event.target.value - 1});
+    }
+
+    onNameChange = (event) => {
+        this.setState({eventName: event.target.value});
+    }
+
+    resetNewEvent = (event) => {
+    }
+    
     render() {
+        console.log(this.state.eventsToRender)
+        console.log(this.state.eventToAdd)
         return (
             <div>
                 <MonthName Month = {months2019[this.state.mIndex].name} pressRight = { this.onPressRight } pressLeft = { this.onPressLeft} />
                 <Annotation />
                 <Month Month = { months2019[this.state.mIndex] }/>
-                <Events Month = { this.state.mIndex }/>
+                <Events Month = {this.state.mIndex} eventsList = {this.state.eventsToRender} />
+                <AddEvent submitNewEvent = { this.onSubmitEvent } inputDayHandler = {this.onDayChange} inputNameHandler = {this.onNameChange}/>
             </div>
     
         )

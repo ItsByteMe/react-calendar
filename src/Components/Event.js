@@ -2,7 +2,6 @@ import React from 'react';
 
 const Event = ({ month, day, name }) => {
     let mName = '';
-    console.log(month)
     switch(month) {
         case 0:
             mName = 'January';
