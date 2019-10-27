@@ -1,18 +1,15 @@
 import React from 'react';
 import Event from './Event';
 import './Events.css'
-import { eventsList } from '../eventsList';
 
-const Events = ({ Month, eventsList }) => {
-    // const eventsToShow = eventsList.filter(event => event.month === Month)
+const Events = ({ Month, eventsList, deleteFunc }) => {
     // localStorage.setItem('myData', JSON.stringify(eventsToShow));
     // const xx = localStorage.getItem('myData');
     // console.log(JSON.parse(xx))
 
-    const eventsComponent = eventsList.map(i => {
-        console.log(i);
+    const eventsComponent = eventsList.map((event, index) => {
         return (   
-            <Event month = {Month} day = {i.day + 1} name = {i.name} />
+            <Event month = {Month} day = {event.day + 1} name = {event.name} index = {index} deleteFunc = {deleteFunc}/>
         )
     })
 

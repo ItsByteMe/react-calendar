@@ -17,12 +17,6 @@ class App extends React.Component {
             eventDay: undefined,
             eventName: ''
         }
-
-        this.onPressRight = this.onPressRight.bind(this);
-        this.onPressLeft = this.onPressLeft.bind(this);
-        this.onSubmitEvent = this.onSubmitEvent.bind(this);
-        this.onDayChange = this.onDayChange.bind(this);
-        this.onNameChange = this.onNameChange.bind(this);
     }
     
     componentDidMount = () => {
@@ -65,19 +59,18 @@ class App extends React.Component {
     onNameChange = (event) => {
         this.setState({eventName: event.target.value});
     }
-
-    resetNewEvent = (event) => {
+    
+    onDeleteEvent = (indexVar) => {
+        this.setState({eventsToRender: this.state.eventsToRender.filter((item, index) => index !== indexVar)})
     }
     
     render() {
-        console.log(this.state.eventsToRender)
-        console.log(this.state.eventToAdd)
         return (
             <div>
                 <MonthName Month = {months2019[this.state.mIndex].name} pressRight = { this.onPressRight } pressLeft = { this.onPressLeft} />
                 <Annotation />
                 <Month Month = { months2019[this.state.mIndex] }/>
-                <Events Month = {this.state.mIndex} eventsList = {this.state.eventsToRender} />
+                <Events Month = {this.state.mIndex} eventsList = {this.state.eventsToRender} deleteFunc = {this.onDeleteEvent} />
                 <AddEvent submitNewEvent = { this.onSubmitEvent } inputDayHandler = {this.onDayChange} inputNameHandler = {this.onNameChange}/>
             </div>
     

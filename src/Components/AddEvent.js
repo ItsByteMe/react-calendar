@@ -1,17 +1,15 @@
 import React from 'react';
-import Event from './Event';
-import './Events.css'
-import { eventsList } from '../eventsList';
+import './AddEvent.css'
 
 const AddEvent = ({ submitNewEvent, inputDayHandler, inputNameHandler} ) => {
     return (
-        <div>
+        <div className = 'addEvents'>
             <p>Add Event:</p>
             Event Day: <input name="day" type="number" onChange = {inputDayHandler}></input>
             <br></br>
             Event Name: <input name="name" type="text" onChange = {inputNameHandler}></input>
             <br></br>
-            <input type="submit" onClick = {submitNewEvent}/>
+            <input className = "submitButton" type="submit" onClick = {submitNewEvent}/>
         </div>
     )
 }

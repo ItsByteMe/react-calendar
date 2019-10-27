@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Event = ({ month, day, name }) => {
+const Event = ({ month, day, name, index, deleteFunc }) => {
     let mName = '';
     switch(month) {
         case 0:
@@ -58,7 +58,8 @@ const Event = ({ month, day, name }) => {
 
 
     return (
-        <li>{mName} the {day}{suffix}, {name}</li>
+       // <li>{mName} the {day}{suffix}, {name} <button eday = {day} emonth = {month} ename = {name} eindex = {index} onClick = {deleteFunc}>&#215;</button></li>
+       <li>{mName} the {day}{suffix}, {name} <button onClick = {() => deleteFunc(index)}>&#215;</button></li>
     )
 }
 
