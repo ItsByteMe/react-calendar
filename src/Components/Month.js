@@ -10,6 +10,7 @@ const Month = ({ Month }) => {
             mDays.unshift(undefined)
         }
     }
+    
     const monthComponent = mDays.map((i) => {
         return (
             <Day dayNumber = {i+1}/>

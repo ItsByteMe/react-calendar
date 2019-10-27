@@ -8,6 +8,7 @@
     align-items: center;
 
 }
+
 .Events p {
     color: rgb(153, 67, 149);
     font-size: 20px;
@@ -33,4 +34,26 @@
     font-size:16px;
     color: rgb(65, 65, 65);
     background: #eee;
+}
+
+@media (max-width:1000px) {
+    .Events li {
+        list-style-type: none;
+        width: 75%;
+        text-align: center;
+        margin-bottom: 5px;
+        font-size:16px;
+        color: rgb(65, 65, 65);
+        background: #ddd;
+    }
+
+    .Events li:nth-child(even) {
+        list-style-type: none;
+        width: 75%;
+        text-align: center;
+        margin-bottom: 5px;
+        font-size:16px;
+        color: rgb(65, 65, 65);
+        background: #eee;
+    }
 }

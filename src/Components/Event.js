@@ -56,10 +56,13 @@ const Event = ({ month, day, name, index, deleteFunc }) => {
         suffix = 'th';
     }
 
-
     return (
-       // <li>{mName} the {day}{suffix}, {name} <button eday = {day} emonth = {month} ename = {name} eindex = {index} onClick = {deleteFunc}>&#215;</button></li>
-       <li>{mName} the {day}{suffix}, {name} <button onClick = {() => deleteFunc(index)}>&#215;</button></li>
+       <li>
+           <p>{name}</p>
+           {mName} the {day}{suffix}
+           <br></br>
+           <button onClick = {() => deleteFunc(index)}>&#215;</button>
+        </li>
     )
 }
 
